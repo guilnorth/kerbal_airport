@@ -1,0 +1,19 @@
+ <form (ngSubmit)="searchVoo()" #form="ngForm" autocomplete="nope">
+    <div class="form-group col-sm-12">
+      <label>Codigo da Passagem</label>
+      <div class="input-group">
+        <input type="text"  placeholder="Codigo da Passagem"
+               class="form-control" [(ngModel)]="voo.passagem_num"
+               name="Codigo da Passagem" required
+               [class.form-control-danger]=""/>
+        <span class="input-group-append">
+            <button class="btn btn-success input-group-text"
+                    [disabled]="submitted || !form.valid"
+                    [class.btn-pulse]="submitted">
+              Buscar
+            </button>
+          </span>
+      </div>
+    </div>
+  </form>
+

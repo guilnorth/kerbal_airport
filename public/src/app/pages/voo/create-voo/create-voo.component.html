@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>Cadastro de Voo</nb-card-header>
+      <nb-card-body>
+        <form (ngSubmit)="create()" #form="ngForm" autocomplete="nope">
+          <div class="row">
+            <div class="form-group col-sm-3">
+              <label>Passageiro</label>
+              <div class="form-group">
+                <ng-select class="form-control" [items]="passageirosList"
+                           bindLabel="nome"
+                           name="passageiro" #passageiro="ngModel"
+                           [class.form-control-danger]="passageiro.invalid && passageiro.touched"
+                           [(ngModel)]="voo.passageiro">
+                </ng-select>
+              </div>
+            </div>
+
+            <div class="form-group col-sm-3">
+              <label>Aeroporto</label>
+              <div class="form-group">
+                <ng-select class="form-control" [items]="aeroportosList"
+                           bindLabel="nome"
+                           bindValue="id"
+                           name="aeroporto" #aeroporto="ngModel"
+                           [class.form-control-danger]="aeroporto.invalid && aeroporto.touched"
+                           [(ngModel)]="voo.aeroporto.id">
+                </ng-select>
+              </div>
+            </div>
+
+            <div class="form-group col-sm-3">
+              <label>Número Passagem</label>
+              <input type="text" placeholder="Número Passagem"
+                     [(ngModel)]="voo.passagem_num" class="form-control"
+                     name="descricao" required #descricao="ngModel"
+                     [class.form-control-danger]="descricao.invalid && descricao.touched"
+              />
+            </div>
+
+
+
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-3">
+              <label>Data de Embarque</label>
+              <input type="date" placeholder="Data de Nascimento"
+                     [(ngModel)]="voo.data_embarque" class="form-control"
+                     name="dataE" required #dataE="ngModel"
+                     [class.form-control-danger]="dataE.invalid && dataE.touched"/>
+            </div>
+            <div class="form-group col-sm-3">
+              <label>Data de Desembarque</label>
+              <input type="date" placeholder="Data de Nascimento"
+                     [(ngModel)]="voo.data_desembarque" class="form-control"
+                     name="dataD" required #dataD="ngModel"
+                     [class.form-control-danger]="dataD.invalid && dataD.touched"/>
+            </div>
+            <div class="form-group col-sm-3">
+              <label>Aviao</label>
+              <div class="form-group">
+                <ng-select class="form-control" [items]="aviaoList"
+                           bindLabel="modelo"
+                           name="aviao" #aviao="ngModel"
+                           [class.form-control-danger]="aviao.invalid && aviao.touched"
+                           [(ngModel)]="voo.aviao">
+                </ng-select>
+              </div>
+            </div>
+          </div>
+
+
+          <button [disabled]="submitted || !form.valid"
+                  [class.btn-pulse]="submitted" class="btn btn-hero-success btn-demo">Cadastrar</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+

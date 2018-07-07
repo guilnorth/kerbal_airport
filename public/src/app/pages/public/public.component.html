@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12">
+    <nb-card size="large">
+
+      <!--*ngIf="tabsVisible.consumerSearch"
+      [active]="nameActiveTab === 'Consumidor'"-->
+
+      <nb-tabset fullWidth (changeTab)="onChangeTab($event)" >
+        <nb-tab tabTitle="Consulta"  [active]="nameActiveTab === 'Consulta'">
+          <search-voo [voo]="voo"
+                      (searchVooEmitter)="changeActiveTab('Informações','vooData')">
+          </search-voo>
+
+        </nb-tab>
+
+
+        <nb-tab  tabTitle="Informações" [active]="nameActiveTab === 'Informações'">
+          <div class="row">
+            <div class="col-sm-4">
+              <h5>Passageiro</h5>
+              <p >
+                {{voo?.passageiro?.nome}}
+              </p>
+            </div>
+
+
+            <div class="col-sm-4">
+              <h5>Aeroporto</h5>
+              <p >
+                {{voo?.aeroporto?.nome}} - Planeta {{voo?.aeroporto?.planeta.nome}}
+              </p>
+            </div>
+
+
+            <div class="col-sm-4">
+              <h5>Datas</h5>
+              <p >
+                Embarque: {{dateView(voo?.data_embarque)}}<br>
+                Desembarque: {{dateView(voo?.data_desembarque)}}
+              </p>
+            </div>
+
+          </div>
+
+          <div class="row ">
+            <div class="col-sm-4">
+              <h5>Passagem</h5>
+              <p >
+                {{voo?.passagem_num}}
+              </p>
+            </div>
+
+            <div class="col-sm-4">
+              <h5>Avião</h5>
+              <p>
+                {{voo?.aviao?.empresa}} - {{voo?.aviao?.modelo}}
+              </p>
+            </div>
+          </div>
+        </nb-tab>
+
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+
