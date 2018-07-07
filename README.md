@@ -15,6 +15,7 @@ Para rodar o servidor é necessário ter o Node/Npm configurados e possuir uma i
 **Instalação:** 
 
          $ git clone https://github.com/guilnorth/kerbal_airport
+	 $ npm install
          $ node src/app
 
 **Este comando instala as bibliotecas necessárias (npm install) e inicia o servidor local da aplicação Angular (ng serve)**
